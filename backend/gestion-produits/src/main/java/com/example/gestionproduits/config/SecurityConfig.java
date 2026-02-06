@@ -61,7 +61,8 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
                     config.setAllowCredentials(true);
-                    config.addAllowedOrigin("http://localhost:4200");
+                    config.addAllowedOriginPattern("http://localhost:4200");
+                    config.addAllowedOriginPattern("https://gestion-produit-0nib.onrender.com");
                     config.addAllowedHeader("*");
                     config.addAllowedMethod("*");
                     return config;
