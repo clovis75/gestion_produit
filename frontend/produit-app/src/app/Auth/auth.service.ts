@@ -3,12 +3,13 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable, tap} from 'rxjs';
 import { Router } from '@angular/router';
 import { LoginResponse } from '../models/loginResponse.model';
+import {environment} from '../environnement/environnement';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl:string = '/api/auth';
+  private baseUrl:string = `${environment.apiUrl}/api/auth`;
   private currentUserSubject : BehaviorSubject<any>;
   public currentUser : Observable<any>;
   constructor(private http: HttpClient, private router : Router) {
