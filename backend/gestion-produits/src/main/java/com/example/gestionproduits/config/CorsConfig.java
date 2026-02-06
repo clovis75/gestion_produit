@@ -1,6 +1,5 @@
 package com.example.gestionproduits.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -14,8 +13,11 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedOrigin("https://gestion-produit-0nib.onrender.com");
+
+        // Utilisez addAllowedOriginPattern au lieu de addAllowedOrigin
+        config.addAllowedOriginPattern("http://localhost:4200");
+        config.addAllowedOriginPattern("https://gestion-produit-0nib.onrender.com");
+
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
